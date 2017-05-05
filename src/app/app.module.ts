@@ -6,15 +6,28 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TweetsComponent } from './tweets/tweets.component';
 import { TweetsService } from './tweets.service';
+import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
+
+
+
+const appRoutes: Routes = [
+  { path: '', component: TweetsComponent },
+  { path: 'about', component: AboutComponent },
+  { path: '**', component: AboutComponent }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
-    TweetsComponent
+    TweetsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ TweetsService ],
   bootstrap: [AppComponent]
