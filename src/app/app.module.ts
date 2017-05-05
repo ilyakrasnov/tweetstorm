@@ -9,13 +9,15 @@ import { TweetsService } from './tweets.service';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { SubtweetComponent } from './subtweet/subtweet.component';
+import { UserComponent } from './user/user.component';
 
 
 
 const appRoutes: Routes = [
   { path: '', component: TweetsComponent },
   { path: 'about', component: AboutComponent },
-  { path: '**', component: AboutComponent }
+  { path: 'mentions/:user', component: UserComponent },
+  { path: '**', component: AboutComponent },
 ];
 
 @NgModule({
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
     AppComponent,
     TweetsComponent,
     AboutComponent,
-    SubtweetComponent
+    SubtweetComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

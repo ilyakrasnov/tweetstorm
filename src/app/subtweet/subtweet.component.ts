@@ -31,4 +31,24 @@ export class SubtweetComponent implements OnInit {
 	return val;
   }
 
+  stripColon(val: string) {
+  	const lastChar = val[val.length - 1];
+  	if(lastChar === ":") {
+  		return val.substring(0, val.length - 2);
+  	}
+  	else {
+  		return val;
+  	}
+  }
+
+  trailingColon(val: string) {
+	const lastChar = val[val.length - 1];
+  	if(lastChar === ":") {
+  		return ":";
+  	}
+  	else {
+  		return "";
+  	}
+  }
+
 }
