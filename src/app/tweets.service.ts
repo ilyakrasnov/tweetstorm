@@ -9,9 +9,9 @@ export class TweetsService {
 
   constructor(private http: Http) { }
 
-  getTweets() {
+  getTweets(keyword: String) {
 
-    const url = "http://localhost:3000/tweets";
+    const url = "http://localhost:3000/tweets?keyword=" + keyword;
     const val = this.http.get(url);
     console.log(val);
       return val.map(this.extractData)

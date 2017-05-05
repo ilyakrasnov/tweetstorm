@@ -7,8 +7,10 @@ import { TweetsService } from '../tweets.service';
 })
 export class TweetsComponent implements OnInit {
   results: any[] = [];
+
   constructor(private service: TweetsService) { 
-  	service.getTweets().subscribe( (tweets) => {
+
+  	service.getTweets("nba").subscribe( (tweets) => {
   	console.log(tweets.statuses);
   		this.results = tweets.statuses;
   	});
@@ -16,5 +18,14 @@ export class TweetsComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  search(keyword: String) {
+  	this.service.getTweets(keyword).subscribe( (tweets) => {
+
+  		this.results = tweets.statuses;
+  	});
+  }
+
+
 
 }

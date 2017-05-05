@@ -1,3 +1,21 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-12">
+      <h2>Find tweets@</h2>
+      <a href="https://applyhead.com" target="_blank">Made using Angular 4</a>
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-md-12 col-md-offset-3">
+      <div class="form-inline">
+        <input placeholder="Keyword" class="form-control input-lg input" #keyword (keyup.enter)="search(keyword.value); keyword.value='';" />
+
+        <button class="btn btn-primary btn-lg" (click)="search(place.value, language.value); place.value=''; language.value='';">Search</button>
+      </div>
+    </div>
+  </div>
+
 <div class="user col-md-2 text-center" *ngFor="let tweet of results">
 	<p [innerHTML]="tweet.text"></p>
 </div>
