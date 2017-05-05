@@ -8,6 +8,7 @@ import { TweetsComponent } from './tweets/tweets.component';
 import { TweetsService } from './tweets.service';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { SubtweetComponent } from './subtweet/subtweet.component';
 
 
 
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     TweetsComponent,
-    AboutComponent
+    AboutComponent,
+    SubtweetComponent
   ],
   imports: [
     BrowserModule,

@@ -18,5 +18,7 @@
   </div>
 
 <div class="user col-md-2 text-center" *ngFor="let tweet of results">
-	<p [innerHTML]="tweet.text"></p>
+
+	<app-subtweet [text]="tweet.text"></app-subtweet>
+	
 </div>
