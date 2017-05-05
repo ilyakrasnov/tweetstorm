@@ -1,4 +1,13 @@
 
 <span *ngFor="let part of someMethod()">
-	{{part.value}}
+
+<span *ngIf="part.type === undefined;else other_content">
+    {{part.value}}
 </span>
+
+<ng-template #other_content>
+	<a href="#">{{part.value}}</a>
+</ng-template>
+</span>
+
+
