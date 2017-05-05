@@ -3,7 +3,7 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-
+import _ from 'lodash';
 @Injectable()
 export class TweetsService {
 
@@ -21,8 +21,20 @@ export class TweetsService {
 
   private extractData(res: Response) {
     let body = res.json();
-    console.log("EXTRACTING DATA")
+    console.log("EXTRACTING DATA");
     console.log(body);
+    body.statuses.forEach((status) => {
+    	const mapped = status.text.split(" ").map((str) => {
+    		if(str[0] === '@') {
+    			return "<a href='#'>"+ str +"</a>";
+    		}
+    		if(str[0] === '#') {
+    			return "<a href='#'>" + str + "</a>";
+    		}
+    		return str;
+    	});
+    	status.text = mapped.join(" ");
+    });
     return body;
   }
 
