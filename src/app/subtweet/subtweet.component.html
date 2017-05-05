@@ -6,7 +6,12 @@
 </span>
 
 <ng-template #other_content>
-	<a href="#">{{part.value}}</a>
+	<span *ngIf="part.type === 'hashtag';else other_content2">
+		<a routerLink="/hashtag/{{part.value}}" routerLinkActive="active">{{part.value}}</a>
+	</span>
+	<ng-template #other_content2>
+		<a routerLink="/mentions/{{part.value}}" routerLinkActive="active">{{part.value}}</a>
+	</ng-template>
 </ng-template>
 </span>
 
