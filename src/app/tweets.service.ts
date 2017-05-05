@@ -25,12 +25,25 @@ export class TweetsService {
     console.log(body);
     body.statuses.forEach((status) => {
     	const mapped = status.text.split(" ").map((str) => {
-    		if(str[0] === '@') {
-    			return "<a href='#'>"+ str +"</a>";
-    		}
-    		if(str[0] === '#') {
-    			return "<a href='#'>" + str + "</a>";
-    		}
+		// if(str[0] === "@") {
+		// 	return {
+		// 		type: "mention",
+		// 		value: str
+		// 	};
+		// }
+		// else if(str[0] === "#") {
+		// 	return {
+		// 		type: "hashtag",
+		// 		value: str
+		// 	};
+		// }
+		// return {value: str};
+    		// if(str[0] === '@') {
+    		// 	return "<a routerLink=\"/mentions/" + str +"\" routerLinkActive=\"active\" href=\"#\">"+str+ "</a>";
+    		// }
+    		// if(str[0] === '#') {
+    		// 	return "<a href='#'>" + str + "</a>";
+    		// }
     		return str;
     	});
     	status.text = mapped.join(" ");
