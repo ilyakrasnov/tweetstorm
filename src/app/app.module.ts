@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { SubtweetComponent } from './subtweet/subtweet.component';
 import { UserComponent } from './user/user.component';
-
+import { UserService } from './user.service';
 
 
 const appRoutes: Routes = [
@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ TweetsService ],
+  providers: [ TweetsService, UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

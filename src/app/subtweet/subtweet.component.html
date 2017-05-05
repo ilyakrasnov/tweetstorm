@@ -10,7 +10,7 @@
 		<a [routerLink]="['/hashtags', part.value]">{{part.value}}</a>
 	</span>
 	<ng-template #other_content2>
-		<a [routerLink]="['/mentions', part.value]">{{stripColon(part.value)}}</a>{{trailingColon(part.value)}}
+		<a [routerLink]="['/mentions', stripColon(part.value)]">{{stripColon(part.value)}}</a>{{trailingColon(part.value)}}
 	</ng-template>
 </ng-template>
 </span>

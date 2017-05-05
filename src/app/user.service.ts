@@ -3,15 +3,14 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import _ from 'lodash';
 @Injectable()
-export class TweetsService {
+export class UserService {
 
   constructor(private http: Http) { }
 
-  getTweets(keyword: String) {
+  getUser(username: String) {
 
-    const url = "http://localhost:3000/tweets?keyword=" + keyword;
+    const url = "http://localhost:3000/users/" + username;
     const val = this.http.get(url);
     console.log(val);
       return val.map(this.extractData)
