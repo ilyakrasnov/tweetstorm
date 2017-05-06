@@ -11,13 +11,15 @@ import { AboutComponent } from './about/about.component';
 import { SubtweetComponent } from './subtweet/subtweet.component';
 import { UserComponent } from './user/user.component';
 import { UserService } from './user.service';
+import { HashtagComponent } from './hashtag/hashtag.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: TweetsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'mentions/:user', component: UserComponent },
-  { path: '**', component: AboutComponent },
+  { path: 'hashtags/:hashtag', component: HashtagComponent},
+  { path: '**', component: AboutComponent }
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     TweetsComponent,
     AboutComponent,
     SubtweetComponent,
-    UserComponent
+    UserComponent,
+    HashtagComponent
   ],
   imports: [
     BrowserModule,

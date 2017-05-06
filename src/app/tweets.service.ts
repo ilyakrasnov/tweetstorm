@@ -18,6 +18,14 @@ export class TweetsService {
       .catch(this.handleError);
   }
 
+  getHashtagTweets(hashtag: String) {
+
+    const url = "http://localhost:3000/tweets?hashtag=" + hashtag;
+    const val = this.http.get(url);
+    console.log(val);
+      return val.map(this.extractData)
+      .catch(this.handleError);
+  }
 
   private extractData(res: Response) {
     let body = res.json();

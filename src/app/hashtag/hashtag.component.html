@@ -1,0 +1,7 @@
+<a routerLink="/" routerLinkActive="active">Back</a>
+
+<div class="user col-md-2 text-center" *ngFor="let tweet of results">
+
+	<app-subtweet [text]="tweet.text"></app-subtweet>
+	
+</div>

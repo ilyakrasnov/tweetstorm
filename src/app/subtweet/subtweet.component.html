@@ -7,7 +7,7 @@
 
 <ng-template #other_content>
 	<span *ngIf="part.type === 'hashtag';else other_content2">
-		<a [routerLink]="['/hashtags', part.value]">{{part.value}}</a>
+		<a [routerLink]="['/hashtags', stripHashtag(part.value)]">{{part.value}}</a>
 	</span>
 	<ng-template #other_content2>
 		<a [routerLink]="['/mentions', stripColon(part.value)]">{{stripColon(part.value)}}</a>{{trailingColon(part.value)}}

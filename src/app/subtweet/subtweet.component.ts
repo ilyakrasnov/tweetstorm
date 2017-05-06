@@ -41,6 +41,16 @@ export class SubtweetComponent implements OnInit {
   	}
   }
 
+  stripHashtag(val) {
+
+  	if(val[0] === "#") {
+  		return val.substring(1, val.length);
+  	}
+  	else {
+  		return val;
+  	} 
+  }
+
   trailingColon(val: string) {
 	const lastChar = val[val.length - 1];
   	if(lastChar === ":") {
