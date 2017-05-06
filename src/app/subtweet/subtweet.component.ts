@@ -13,7 +13,9 @@ export class SubtweetComponent implements OnInit {
   }
 
   someMethod() {
+  console.log(this.text);
 	const val = this.text.split(" ").map((str) => {
+
 		if(str[0] === "@") {
 			return {
 				type: "mention",
@@ -27,14 +29,15 @@ export class SubtweetComponent implements OnInit {
 			};
 		}
 		return {value: str};
-	})
+	});
+	console.log(val);
 	return val;
   }
 
   stripColon(val: string) {
   	const lastChar = val[val.length - 1];
   	if(lastChar === ":") {
-  		return val.substring(0, val.length - 2);
+  		return val.substring(0, val.length - 1);
   	}
   	else {
   		return val;
