@@ -18,9 +18,8 @@ export class HashtagComponent implements OnInit {
 
   ngOnInit() {
 	  this.sub = this.route.params.subscribe(params => {
-	  console.log(params['hashtag']);
+
 			this.service.getHashtagTweets(params['hashtag']).subscribe( (tweets) => {
-		  	console.log(tweets);
 		  		this.results = tweets.statuses;
 		  	});
 

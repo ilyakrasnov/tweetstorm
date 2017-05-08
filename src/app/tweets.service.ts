@@ -13,7 +13,6 @@ export class TweetsService {
 
     const url = "http://localhost:3000/tweets?keyword=" + keyword;
     const val = this.http.get(url);
-    console.log(val);
       return val.map(this.extractData)
       .catch(this.handleError);
   }
@@ -22,7 +21,6 @@ export class TweetsService {
 
     const url = "http://localhost:3000/tweets?hashtag=" + hashtag;
     const val = this.http.get(url);
-    console.log(val);
       return val.map(this.extractData)
       .catch(this.handleError);
   }

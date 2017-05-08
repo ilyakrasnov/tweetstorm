@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
 @Component({
-  selector: 'app-subtweet',
-  templateUrl: './subtweet.component.html',
-  styleUrls: ['./subtweet.component.css']
+  selector: 'app-tweet',
+  templateUrl: './tweet.component.html',
+  styleUrls: ['./tweet.component.css']
 })
-export class SubtweetComponent implements OnInit {
+export class TweetComponent implements OnInit {
     @Input() text: string;
   constructor() { }
 
@@ -13,7 +13,7 @@ export class SubtweetComponent implements OnInit {
   }
 
   someMethod() {
-  console.log(this.text);
+
 	const val = this.text.split(" ").map((str) => {
 
 		if(str[0] === "@") {
@@ -30,7 +30,7 @@ export class SubtweetComponent implements OnInit {
 		}
 		return {value: str};
 	});
-	console.log(val);
+
 	return val;
   }
 

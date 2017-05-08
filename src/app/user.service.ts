@@ -12,7 +12,7 @@ export class UserService {
 
     const url = "http://localhost:3000/users/" + username;
     const val = this.http.get(url);
-    console.log(val);
+
       return val.map(this.extractData)
       .catch(this.handleError);
   }

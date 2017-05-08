@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubtweetComponent } from './subtweet.component';
+import { TweetListComponent } from './tweet-list.component';
 
-describe('SubtweetComponent', () => {
-  let component: SubtweetComponent;
-  let fixture: ComponentFixture<SubtweetComponent>;
+describe('TweetListComponent', () => {
+  let component: TweetListComponent;
+  let fixture: ComponentFixture<TweetListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SubtweetComponent ]
+      declarations: [ TweetListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubtweetComponent);
+    fixture = TestBed.createComponent(TweetListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
