@@ -9,20 +9,16 @@ import { TweetsService } from '../tweets.service';
 })
 export class HashtagComponent implements OnInit {
   hashtag: string;
-  private sub: any;
   results: any[] = [];
+
   constructor(private route: ActivatedRoute, private service: TweetsService) { 
-
-
   }
 
   ngOnInit() {
-	  this.sub = this.route.params.subscribe(params => {
-
+	  this.route.params.subscribe(params => {
 			this.service.getHashtagTweets(params['hashtag']).subscribe( (tweets) => {
 		  		this.results = tweets.statuses;
 		  	});
-
 	  });
 
   }

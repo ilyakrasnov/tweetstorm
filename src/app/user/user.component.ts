@@ -8,7 +8,6 @@ import { UserService } from '../user.service';
 })
 export class UserComponent implements OnInit {
   user: string;
-  private sub: any;
   profile_image_url: string;
   profile_banner_url: string;
   follower_count: number;
@@ -16,10 +15,10 @@ export class UserComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: UserService) { }
 
   ngOnInit() {
-      this.sub = this.route.params.subscribe(params => {
-       this.user = params['user'];
+    this.route.params.subscribe(params => {
+      this.user = params['user'];
 
-     	this.service.getUser(params['user']).subscribe( (user) => {
+     	this.service.getUser(this.user).subscribe( (user) => {
 		  	this.profile_image_url = user.profile_image_url;
 		  	this.profile_banner_url = user.profile_banner_url;
   			this.follower_count = + user.followers_count;

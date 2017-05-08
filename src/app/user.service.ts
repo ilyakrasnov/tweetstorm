@@ -9,23 +9,16 @@ export class UserService {
   constructor(private http: Http) { }
 
   getUser(username: String) {
-
     const url = "http://localhost:3000/users/" + username;
-    const val = this.http.get(url);
-
-      return val.map(this.extractData)
+    return this.http.get(url).map(this.extractData)
       .catch(this.handleError);
   }
 
-
   private extractData(res: Response) {
-    let body = res.json();
-
-    return body;
+    return res.json();
   }
 
   private handleError(error: Response | any) {
-    // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
