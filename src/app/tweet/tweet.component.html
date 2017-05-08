@@ -1,15 +1,15 @@
 
-<span *ngFor="let part of someMethod()">
+<span *ngFor="let part of parseTweet()">
 
-<span *ngIf="part.type === undefined;else other_content">
+<span *ngIf="part.type === undefined;else special_word_types">
     {{part.value}}
 </span>
 
-<ng-template #other_content>
-	<span *ngIf="part.type === 'hashtag';else other_content2">
+<ng-template #special_word_types>
+	<span *ngIf="part.type === 'hashtag';else mention_word_type">
 		<a [routerLink]="['/hashtags', stripHashtag(part.value)]">{{part.value}}</a>
 	</span>
-	<ng-template #other_content2>
+	<ng-template #mention_word_type>
 		<a [routerLink]="['/mentions', stripColon(part.value)]">{{stripColon(part.value)}}</a>{{trailingColon(part.value)}}
 	</ng-template>
 </ng-template>
