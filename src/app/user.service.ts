@@ -9,8 +9,10 @@ export class UserService {
   constructor(private http: Http) { }
 
   getUser(username: String) {
-    const url = "http://localhost:3000/users/" + username;
-    return this.http.get(url).map(this.extractData)
+    const url = `http://localhost:3000/users/${username}`;
+    return this.http
+      .get(url)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 

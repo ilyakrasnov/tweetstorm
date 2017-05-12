@@ -19,17 +19,20 @@ export class TweetComponent implements OnInit {
   // { value: "Hello" }
   // { type: "mention", value: "@kenmazaika" }
   // { type: "hashtag", value: "#nba" }
+  //
+  // Twitter gives us the `entities` field that allows we can
+  // parse out for specific mentions.
   parseTweet() {
 	let specialParts = [];
-	this.tweet['entities']['hashtags'].forEach((ht) => {
+	this.tweet['entities']['hashtags'].forEach( (ht) => {
 		specialParts.push({type: "hashtag", indices: ht.indices});
 	});
 
-	this.tweet['entities']['user_mentions'].forEach((um) => {
-		specialParts.push({type: "mention", indices: um.indices});
+	this.tweet['entities']['user_mentions'].forEach( (um) => {
+		specialParts.push({ type: "mention", indices: um.indices });
 	});
 
-	let stringComponents = specialParts.sort((x, y) => {
+	let stringComponents = specialParts.sort( (x, y) => {
 		return x.indices[0] - y.indices[0];
 	});
 
@@ -45,7 +48,7 @@ export class TweetComponent implements OnInit {
 		const before = stringComponents[i];
 		const after = stringComponents[i + 1];
 		stringComponents.push( 
-			{ indices: [before.indices[1], after.indices[0]]}
+			{ indices: [before.indices[1], after.indices[0]] }
 		);
 	} 
 	
@@ -56,14 +59,14 @@ export class TweetComponent implements OnInit {
 	stringComponents.push({ indices: [0, stringComponents[0].indices[0]]});
 
 	// add the text after the last special part
-	stringComponents.push({ indices: [lastSpecialPart.indices[1], this.tweet['text'].length]});
+	stringComponents.push({ indices: [lastSpecialPart.indices[1], this.tweet['text'].length] });
 	stringComponents = stringComponents.sort((x: object, y: object) => {
 		return x['indices'][0] - y['indices'][0];
 	});
 
 	// Now that we've done that, the data structures are all set.  Add the
 	// string itself in there.
-	stringComponents = stringComponents.map((part) => {
+	stringComponents = stringComponents.map( (part) => {
 		return {
 			... part,
 			value: this.tweet['text'].substring(part.indices[0], part.indices[1])

@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
   profile_banner_url: string;
   follower_count: number;
 
-  constructor(private route: ActivatedRoute, private service: UserService) { }
+  constructor( private route: ActivatedRoute, private service: UserService ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -27,7 +27,7 @@ export class UserComponent implements OnInit {
   }
 
   userName() {
-  	if(this.user[0] === "@") {
+  	if( this.user[0] === "@" ) {
   		return this.user.substring(1, this.user.length)
   	}
   	else {

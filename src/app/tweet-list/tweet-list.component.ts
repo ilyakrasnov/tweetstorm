@@ -17,24 +17,24 @@ export class TweetListComponent implements OnInit {
   // and not much else.
   // http://stackoverflow.com/questions/35763730/difference-between-constructor-and-ngoninit
   ngOnInit() {
-    if(this.results.length === 0) {
-      this.query = localStorage.getItem("lastSearch") || "nba";
+    if( this.results.length === 0 ) {
+      this.query = localStorage.getItem('lastSearch') || 'nba';
 
-      this.service.getTweets(this.query).subscribe( (tweets) => {
+      this.service.getTweets( this.query ).subscribe( (tweets) => {
         this.results = tweets.statuses;
       });
     }
 
     // Update the feed every 3 seconds.
-    setInterval(() => {
+    setInterval( () => {
         this.search(this.query);
     }, 3000);
   }
 
-  search(keyword: string) {
-    window.localStorage.setItem("lastSearch", keyword);
+  search( keyword: string ) {
+    window.localStorage.setItem('lastSearch', keyword );
     this.query = keyword;
-  	this.service.getTweets(keyword).subscribe( (tweets) => {
+  	this.service.getTweets( keyword ).subscribe( (tweets) => {
   		this.results = tweets.statuses;
   	});
   }
