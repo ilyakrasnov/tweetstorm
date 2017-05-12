@@ -10,7 +10,7 @@ export class TweetsService {
   constructor(private http: Http) { }
 
   getTweets(keyword: string) {
-    const url = `http://localhost:3000/tweets?keyword=${encodeURI(keyword)}`;
+    const url = `http://localhost:3000/tweets?keyword=${keyword}`;
     return this.http.get(url).map(this.extractData)
       .catch(this.handleError);
   }
@@ -22,7 +22,7 @@ export class TweetsService {
       tag = hashtag.slice(1, hashtag.length);
     }
 
-    const url = `http://localhost:3000/tweets?hashtag=${encodeURI(tag)}`;
+    const url = `http://localhost:3000/tweets?hashtag=${tag}`;
     return this.http.get(url).map(this.extractData)
       .catch(this.handleError);
   }

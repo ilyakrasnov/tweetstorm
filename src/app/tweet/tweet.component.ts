@@ -41,14 +41,16 @@ export class TweetComponent implements OnInit {
 	// we currently account for @ken and #awesome.  Next add the stuff between special
 	// parts, so in this case the "are you good?" part.
 	const middleItemCount = stringComponents.length - 1;
-	for (let i = 0; i < middleItemCount; i++) {
+	for ( let i = 0; i < middleItemCount; i++ ) {
 		const before = stringComponents[i];
 		const after = stringComponents[i + 1];
-		stringComponents.push({ indices: [before.indices[1], after.indices[0]]})
+		stringComponents.push( 
+			{ indices: [before.indices[1], after.indices[0]]}
+		);
 	} 
-
-	if(!stringComponents[0]) {
-		return [{value: this.tweet['text']}];
+	
+	if( ! stringComponents[0] ) {
+		return [ { value: this.tweet['text'] } ];
 	}
 	// add the text between the beginning of the string and first special part
 	stringComponents.push({ indices: [0, stringComponents[0].indices[0]]});

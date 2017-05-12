@@ -25,6 +25,7 @@ export class TweetListComponent implements OnInit {
       });
     }
 
+    // Update the feed every 3 seconds.
     setInterval(() => {
         this.search(this.query);
     }, 3000);

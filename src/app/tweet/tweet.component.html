@@ -7,10 +7,10 @@
 
 <ng-template #special_word_types>
 	<span *ngIf="part.type === 'hashtag';else mention_word_type">
-		<a [routerLink]="['/hashtags', part.value]">{{part.value}}</a>
+		<a [routerLink]="['/hashtags', part.value.slice(1, part.value.length)]">{{part.value}}</a>
 	</span>
 	<ng-template #mention_word_type>
-		<a [routerLink]="['/mentions', part.value]">{{part.value}}</a>}
+		<a [routerLink]="['/mentions', part.value.slice(1, part.value.length)]">{{part.value}}</a>
 	</ng-template>
 </ng-template>
 </span>
