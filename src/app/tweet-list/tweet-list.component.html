@@ -1,3 +1,4 @@
+<button (click)="search(query)">Refresh</button>
 <div class="container">
   <div class="row text-center">
     <div class="col-md-12">
@@ -19,6 +20,6 @@
 
 <div class="user col-md-2 text-center" *ngFor="let tweet of results">
 
-	<app-tweet [text]="tweet.text"></app-tweet>
+	<app-tweet [tweet]="tweet"></app-tweet>
 	
 </div>

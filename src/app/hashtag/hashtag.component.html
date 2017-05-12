@@ -1,5 +1,5 @@
 <a routerLink="/" routerLinkActive="active">Back</a>
 
 <div class="user col-md-2 text-center" *ngFor="let tweet of results">
-	<app-tweet [text]="tweet.text"></app-tweet>
+	<app-tweet [tweet]="tweet"></app-tweet>
 </div>

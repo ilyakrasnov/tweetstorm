@@ -9,14 +9,20 @@ export class TweetsService {
 
   constructor(private http: Http) { }
 
-  getTweets(keyword: String) {
-    const url = "http://localhost:3000/tweets?keyword=" + keyword;
+  getTweets(keyword: string) {
+    const url = `http://localhost:3000/tweets?keyword=${encodeURI(keyword)}`;
     return this.http.get(url).map(this.extractData)
       .catch(this.handleError);
   }
 
-  getHashtagTweets(hashtag: String) {
-    const url = "http://localhost:3000/tweets?hashtag=" + hashtag;
+  getHashtagTweets(hashtag: string) {
+
+    let tag = hashtag;
+    if(hashtag[0] === '#') {
+      tag = hashtag.slice(1, hashtag.length);
+    }
+
+    const url = `http://localhost:3000/tweets?hashtag=${encodeURI(tag)}`;
     return this.http.get(url).map(this.extractData)
       .catch(this.handleError);
   }

@@ -7,6 +7,7 @@ import { TweetsService } from '../tweets.service';
 })
 export class TweetListComponent implements OnInit {
   results: any[] = [];
+  query: string;
 
   constructor(private service: TweetsService) { }
 
@@ -17,16 +18,21 @@ export class TweetListComponent implements OnInit {
   // http://stackoverflow.com/questions/35763730/difference-between-constructor-and-ngoninit
   ngOnInit() {
     if(this.results.length === 0) {
-      const query = localStorage.getItem("lastSearch") || "nba";
+      this.query = localStorage.getItem("lastSearch") || "nba";
 
-      this.service.getTweets(query).subscribe( (tweets) => {
+      this.service.getTweets(this.query).subscribe( (tweets) => {
         this.results = tweets.statuses;
       });
     }
+
+    setInterval(() => {
+        this.search(this.query);
+    }, 3000);
   }
 
   search(keyword: string) {
     window.localStorage.setItem("lastSearch", keyword);
+    this.query = keyword;
   	this.service.getTweets(keyword).subscribe( (tweets) => {
   		this.results = tweets.statuses;
   	});
